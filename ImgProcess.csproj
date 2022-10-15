@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E195B0C-4246-4865-834A-6C647E6BE30F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ImgProcess</RootNamespace>
+    <AssemblyName>Envision</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ImgProcess.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>AFE148B429CF47295BC4C019560C595B386B89AD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ImgProcess_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Design, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Docking, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DirectShowLib.Standard.2.1.0\lib\net45\DirectShowLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DVPCameraCS64">
+      <HintPath>Depends\x64\DVPCameraCS64.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Bitmap, Version=4.4.0.4061, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\Emgu.CV.Bitmap.4.4.0.4061\lib\netstandard2.0\Emgu.CV.Bitmap.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Platform.NetFramework, Version=4.4.0.4099, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\Emgu.CV.UI.4.4.0.4099\lib\net461\Emgu.CV.Platform.NetFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Platform.NetStandard, Version=4.4.0.4061, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\Emgu.CV.4.4.0.4061\lib\netstandard2.0\Emgu.CV.Platform.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="ErrLbl">
+      <HintPath>Depends\ErrLbl.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessor, Version=2.9.1.225, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ImageProcessor.2.9.1\lib\net452\ImageProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit, Version=65.22.6.152, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Krypton.Toolkit.65.22.6.152\lib\net472\Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>Depends\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TCT\TCT_Accounts 20160725\TYTAccounts\Accounts\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Numpy, Version=3.7.1.28, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Numpy.3.7.1.28\lib\netstandard2.0\Numpy.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\MicrosoftOfficeCore.15.0.0\lib\net35\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>packages\OpenCvSharp4.4.6.0.20220608\lib\netstandard2.0\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Python.Deployment, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Python.Deployment.1.2.0\lib\netstandard2.0\Python.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="Python.Included, Version=3.7.3.13, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Python.Included.3.7.3.13\lib\netstandard2.0\Python.Included.dll</HintPath>
+    </Reference>
+    <Reference Include="RulerControl, Version=1.0.8192.25175, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Depends\RulerControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Unity3D.UnityEngine.2020.3.21\lib\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>packages\ZedGraph.5.1.5\lib\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="camera_config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="camera_config.Designer.cs">
+      <DependentUpon>camera_config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="calibaration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="calibaration.Designer.cs">
+      <DependentUpon>calibaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="camera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="camera.Designer.cs">
+      <DependentUpon>camera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clsReg.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmmag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmmag.Designer.cs">
+      <DependentUpon>frmmag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMultireport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMultireport.Designer.cs">
+      <DependentUpon>frmMultireport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Camera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Camera.Designer.cs">
+      <DependentUpon>frm_Camera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="imageWM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="imageWM.Designer.cs">
+      <DependentUpon>imageWM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components.Designer.cs">
+      <DependentUpon>Components.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComponentsAdd.Designer.cs">
+      <DependentUpon>ComponentsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Measurements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Measurements.Designer.cs">
+      <DependentUpon>Measurements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mysql.cs" />
+    <Compile Include="Objects\cLine.cs" />
+    <Compile Include="ObjList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjList.Designer.cs">
+      <DependentUpon>ObjList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reg.Designer.cs">
+      <DependentUpon>reg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="savework.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="savework.Designer.cs">
+      <DependentUpon>savework.cs</DependentUpon>
+    </Compile>
+    <Compile Include="settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settings.Designer.cs">
+      <DependentUpon>settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testnew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testnew.Designer.cs">
+      <DependentUpon>testnew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools.Designer.cs">
+      <DependentUpon>Tools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ufrm_CameraSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ufrm_CameraSettings.Designer.cs">
+      <DependentUpon>ufrm_CameraSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="welmet1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="welmet1.Designer.cs">
+      <DependentUpon>welmet1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="camera_config.resx">
+      <DependentUpon>camera_config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="calibaration.resx">
+      <DependentUpon>calibaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="camera.resx">
+      <DependentUpon>camera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmmag.resx">
+      <DependentUpon>frmmag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMultireport.resx">
+      <DependentUpon>frmMultireport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Camera.resx">
+      <DependentUpon>frm_Camera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="imageWM.resx">
+      <DependentUpon>imageWM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components.resx">
+      <DependentUpon>Components.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComponentsAdd.resx">
+      <DependentUpon>ComponentsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Measurements.resx">
+      <DependentUpon>Measurements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObjList.resx">
+      <DependentUpon>ObjList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="reg.resx">
+      <DependentUpon>reg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="savework.resx">
+      <DependentUpon>savework.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testnew.resx">
+      <DependentUpon>testnew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools.resx">
+      <DependentUpon>Tools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ufrm_CameraSettings.resx">
+      <DependentUpon>ufrm_CameraSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="welmet1.resx">
+      <DependentUpon>welmet1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ImgProcess_TemporaryKey.pfx" />
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-1047234038-170667a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip-horizontal-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\corp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip-horizontal-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip-vertical-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate anticlockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate clockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate-2-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip-horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green filter1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveas32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveas24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red filter1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rgb all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resize-6-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ruler-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ruler-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ruler-icon %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rulers-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calibrate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undo-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\options-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text-bg-color-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text-bg-color-32 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text-bg-color-32 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gray1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graydown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grayleft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grayright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grayup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aero_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vignette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\angle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_selection-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_selection-22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aero-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\angle-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\point_to_point_line-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\point_to_point_line-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marking_line-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grayscale-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gaussian_blur-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gaussian_sharpen-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invert-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vignette-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vignette-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rounded corner-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip_horizontal-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip_horizontal-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip_vertical-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip_vertical-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate_anti_clockwise-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate_clockwise-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RESIZE-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tootls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tootls1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x86\Debug\Icons\B\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Depends\ErrLbl.dll" />
+    <Content Include="Depends\MySql.Data.dll" />
+    <Content Include="Depends\RulerControl.dll" />
+    <Content Include="Money-Transportation.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Envision.Common\Envision.Common.csproj">
+      <Project>{be8c0123-a038-4df6-97df-01939d847d7d}</Project>
+      <Name>Envision.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Envision_CamLib\Envision_CamLib.csproj">
+      <Project>{bb6e1f11-f2f9-4d40-affd-0d3668cd77f9}</Project>
+      <Name>Envision_CamLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Emgu.CV.runtime.windows.4.4.0.4099\build\Emgu.CV.runtime.windows.targets" Condition="Exists('packages\Emgu.CV.runtime.windows.4.4.0.4099\build\Emgu.CV.runtime.windows.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Emgu.CV.runtime.windows.4.4.0.4099\build\Emgu.CV.runtime.windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Emgu.CV.runtime.windows.4.4.0.4099\build\Emgu.CV.runtime.windows.targets'))" />
+  </Target>
+</Project>
