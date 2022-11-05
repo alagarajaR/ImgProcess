@@ -16,6 +16,7 @@ using ComponentFactory.Krypton.Toolkit;
 using System.Reflection;
 using Envision_CamLib;
 using System.IO;
+using Envision.Common;
 
 namespace ImgProcess
 {
@@ -2753,7 +2754,7 @@ namespace ImgProcess
 
         }
 
-            private void cmbJobs_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbJobs_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             //txtLoc.Text = "";
@@ -4148,41 +4149,86 @@ namespace ImgProcess
 
         }
 
+
+        // Code Added by ARaja
         private void kryptonButton9_Click(object sender, EventArgs e)
         {
             try
             {
-                // Commented by ARaja 14102022
-                frm_CameraInt frmCamera = new frm_CameraInt();
-                frmCamera._isWeldMet = com.WMLic;
+                string modelName = cls_EnvisionConfig.ReadDetailsFromXML(Path.GetDirectoryName(Application.ExecutablePath), @"/configurations/model");
 
-                if (com.IMLic)
-                {
-                    if (txtIMLocation.Text == string.Empty)
+                
+
+                if (modelName == "IDS Peak uEye") {
+
+                    frm_uEyeInit frmCamera = new frm_uEyeInit();
+                    frmCamera._isWeldMet = com.WMLic;
+                    frmCamera._loadRefreshimages += LoadRefreshImages;
+
+                    if (com.IMLic)
                     {
-                        MessageBox.Show("Image Location is not configured. Initiating Image Location !!!");
-                        FolderBrowserDialog fd = new FolderBrowserDialog();
-
-                        if (fd.ShowDialog() == DialogResult.OK)
+                        if (txtIMLocation.Text == string.Empty)
                         {
-                            txtIMLocation.Text = fd.SelectedPath;
-                            Properties.Settings.Default.IMLocation = txtIMLocation.Text;
-                            Properties.Settings.Default.Save();
-                        }
+                            MessageBox.Show("Image Location is not configured. Initiating Image Location !!!");
+                            FolderBrowserDialog fd = new FolderBrowserDialog();
 
+                            if (fd.ShowDialog() == DialogResult.OK)
+                            {
+                                txtIMLocation.Text = fd.SelectedPath;
+                                Properties.Settings.Default.IMLocation = txtIMLocation.Text;
+                                Properties.Settings.Default.Save();
+                            }
+                        }
                         frmCamera._imageLocation = txtIMLocation.Text;
                     }
+                    else
+                    {
+                        if (cmbComponents.Text == string.Empty || cmbJobs.Text == string.Empty)
+                        {
+                            MessageBox.Show("Please select component/Job to proceed capturing images");
+                            return;
+                        }
+                        frmCamera._jobID = txtJobId.Text;
+                        frmCamera._imageLocation = txtLoc.Text;
+                    }
+                    frmCamera.ShowDialog();
+
                 }
                 else
                 {
-                    if ( cmbComponents.Text == string.Empty ||  cmbJobs.Text == string.Empty )
+                    // Commented by ARaja 14102022
+                    frm_CameraInt frmCamera = new frm_CameraInt();
+                    frmCamera._isWeldMet = com.WMLic;
+                    frmCamera._loadRefreshimages += LoadRefreshImages;
+
+                    if (com.IMLic)
                     {
-                        MessageBox.Show("Please select component/Job to proceed capturing images");
-                        return;
+                        if (txtIMLocation.Text == string.Empty)
+                        {
+                            MessageBox.Show("Image Location is not configured. Initiating Image Location !!!");
+                            FolderBrowserDialog fd = new FolderBrowserDialog();
+
+                            if (fd.ShowDialog() == DialogResult.OK)
+                            {
+                                txtIMLocation.Text = fd.SelectedPath;
+                                Properties.Settings.Default.IMLocation = txtIMLocation.Text;
+                                Properties.Settings.Default.Save();
+                            }
+                        }
+                        frmCamera._imageLocation = txtIMLocation.Text;
                     }
-                    frmCamera._imageLocation = txtLoc.Text;
+                    else
+                    {
+                        if (cmbComponents.Text == string.Empty || cmbJobs.Text == string.Empty)
+                        {
+                            MessageBox.Show("Please select component/Job to proceed capturing images");
+                            return;
+                        }
+                        frmCamera._jobID = txtJobId.Text;
+                        frmCamera._imageLocation = txtLoc.Text;
+                    }
+                    frmCamera.ShowDialog();
                 }
-                frmCamera.ShowDialog();
             }
             catch(Exception ex)
             {
@@ -4194,6 +4240,23 @@ namespace ImgProcess
                 {
                     LoadIMImages();
                 }
+                else
+                {
+                    ImgPanelAdd();
+                }
+            }
+        }
+
+        // Code Added by ARaja
+        private void LoadRefreshImages()
+        {
+            if (com.IMLic)
+            {
+                LoadIMImages();
+            }
+            else
+            {
+                ImgPanelAdd();
             }
         }
 

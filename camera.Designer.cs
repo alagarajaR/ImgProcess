@@ -44,7 +44,7 @@
             // pbMainImage
             // 
             this.pbMainImage.Location = new System.Drawing.Point(2, 82);
-            this.pbMainImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbMainImage.Margin = new System.Windows.Forms.Padding(4);
             this.pbMainImage.Name = "pbMainImage";
             this.pbMainImage.Size = new System.Drawing.Size(1396, 666);
             this.pbMainImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -54,7 +54,7 @@
             // cmdStart
             // 
             this.cmdStart.Location = new System.Drawing.Point(265, 23);
-            this.cmdStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdStart.Margin = new System.Windows.Forms.Padding(4);
             this.cmdStart.Name = "cmdStart";
             this.cmdStart.Palette = this.kryptonPalette1;
             this.cmdStart.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
@@ -66,7 +66,7 @@
             // cmdPause
             // 
             this.cmdPause.Location = new System.Drawing.Point(373, 23);
-            this.cmdPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdPause.Margin = new System.Windows.Forms.Padding(4);
             this.cmdPause.Name = "cmdPause";
             this.cmdPause.Palette = this.kryptonPalette1;
             this.cmdPause.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
@@ -78,7 +78,7 @@
             // cmdStop
             // 
             this.cmdStop.Location = new System.Drawing.Point(477, 23);
-            this.cmdStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdStop.Margin = new System.Windows.Forms.Padding(4);
             this.cmdStop.Name = "cmdStop";
             this.cmdStop.Palette = this.kryptonPalette1;
             this.cmdStop.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
@@ -90,7 +90,7 @@
             // saveAsImageToolStripMenuItem
             // 
             this.saveAsImageToolStripMenuItem.Location = new System.Drawing.Point(581, 23);
-            this.saveAsImageToolStripMenuItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveAsImageToolStripMenuItem.Margin = new System.Windows.Forms.Padding(4);
             this.saveAsImageToolStripMenuItem.Name = "saveAsImageToolStripMenuItem";
             this.saveAsImageToolStripMenuItem.Palette = this.kryptonPalette1;
             this.saveAsImageToolStripMenuItem.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
@@ -110,9 +110,10 @@
             "M50",
             "M60",
             "MDX10",
-            "IDS Peak"});
+            "IDS Peak",
+            "IDS Peak uEye"});
             this.cmbModel.Location = new System.Drawing.Point(76, 24);
-            this.cmbModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbModel.Margin = new System.Windows.Forms.Padding(4);
             this.cmbModel.Name = "cmbModel";
             this.cmbModel.Size = new System.Drawing.Size(164, 25);
             this.cmbModel.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -122,7 +123,7 @@
             // kryptonLabel2
             // 
             this.kryptonLabel2.Location = new System.Drawing.Point(13, 25);
-            this.kryptonLabel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kryptonLabel2.Margin = new System.Windows.Forms.Padding(4);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Palette = this.kryptonPalette1;
             this.kryptonLabel2.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
@@ -142,7 +143,7 @@
             this.Controls.Add(this.cmdPause);
             this.Controls.Add(this.cmdStart);
             this.Controls.Add(this.pbMainImage);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "camera";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;

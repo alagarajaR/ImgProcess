@@ -85,14 +85,14 @@ namespace ImgProcess
             "M50",
             "M60",
             "MDX10",
-            "IDS Peak"});
+            "IDS Peak",
+            "IDS Peak uEye"});
             this.cmbModel.Location = new System.Drawing.Point(205, 268);
             this.cmbModel.Margin = new System.Windows.Forms.Padding(4);
             this.cmbModel.Name = "cmbModel";
             this.cmbModel.Size = new System.Drawing.Size(283, 25);
             this.cmbModel.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbModel.TabIndex = 54;
-            this.cmbModel.Text = "M60";
             // 
             // kryptonLabel2
             // 

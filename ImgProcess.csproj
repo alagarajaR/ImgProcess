@@ -774,11 +774,11 @@
     <Content Include="Money-Transportation.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Envision.Common\Envision.Common.csproj">
+    <ProjectReference Include="Envision.Common\Envision.Common.csproj">
       <Project>{be8c0123-a038-4df6-97df-01939d847d7d}</Project>
       <Name>Envision.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Envision_CamLib\Envision_CamLib.csproj">
+    <ProjectReference Include="Envision_CamLib\Envision_CamLib.csproj">
       <Project>{bb6e1f11-f2f9-4d40-affd-0d3668cd77f9}</Project>
       <Name>Envision_CamLib</Name>
     </ProjectReference>
