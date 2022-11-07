@@ -51,7 +51,7 @@ namespace Envision_CamLib
             this.COMBO_DEVICES = new System.Windows.Forms.ComboBox();
             this.tbc_CameraSettings = new System.Windows.Forms.TabControl();
             this.tbp_ExpGain = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.grpb_PresetROI = new System.Windows.Forms.GroupBox();
             this.COMBO_RESOLUTION = new System.Windows.Forms.ComboBox();
             this.grpb_ExposureRegion = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -107,8 +107,9 @@ namespace Envision_CamLib
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.grpb_WhiteBalance = new System.Windows.Forms.GroupBox();
-            this.AWBOnce = new System.Windows.Forms.Button();
             this.AWBEnable = new System.Windows.Forms.CheckBox();
+            this.cmb_AWMode = new System.Windows.Forms.ComboBox();
+            this.AWBOnce = new System.Windows.Forms.Button();
             this.tbp_Enhance = new System.Windows.Forms.TabPage();
             this.grpb_Others = new System.Windows.Forms.GroupBox();
             this.cB_Semi_transparent = new System.Windows.Forms.CheckBox();
@@ -143,7 +144,7 @@ namespace Envision_CamLib
             ((System.ComponentModel.ISupportInitialize)(this.DisplayWindow)).BeginInit();
             this.tbc_CameraSettings.SuspendLayout();
             this.tbp_ExpGain.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.grpb_PresetROI.SuspendLayout();
             this.grpb_ExposureRegion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ExpWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ExpHeight)).BeginInit();
@@ -355,6 +356,7 @@ namespace Envision_CamLib
             // chkb_CameraSettings
             // 
             this.chkb_CameraSettings.AutoSize = true;
+            this.chkb_CameraSettings.Enabled = false;
             this.chkb_CameraSettings.Location = new System.Drawing.Point(311, 21);
             this.chkb_CameraSettings.Name = "chkb_CameraSettings";
             this.chkb_CameraSettings.Size = new System.Drawing.Size(134, 21);
@@ -434,7 +436,7 @@ namespace Envision_CamLib
             // tbp_ExpGain
             // 
             this.tbp_ExpGain.BackColor = System.Drawing.Color.Transparent;
-            this.tbp_ExpGain.Controls.Add(this.groupBox7);
+            this.tbp_ExpGain.Controls.Add(this.grpb_PresetROI);
             this.tbp_ExpGain.Controls.Add(this.grpb_ExposureRegion);
             this.tbp_ExpGain.Controls.Add(this.grpb_Frequency);
             this.tbp_ExpGain.Controls.Add(this.grp_Brilliance);
@@ -445,17 +447,18 @@ namespace Envision_CamLib
             this.tbp_ExpGain.TabIndex = 0;
             this.tbp_ExpGain.Text = "Exposure";
             // 
-            // groupBox7
+            // grpb_PresetROI
             // 
-            this.groupBox7.Controls.Add(this.COMBO_RESOLUTION);
-            this.groupBox7.Location = new System.Drawing.Point(11, 653);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox7.Size = new System.Drawing.Size(369, 68);
-            this.groupBox7.TabIndex = 28;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Preset Roi";
+            this.grpb_PresetROI.Controls.Add(this.COMBO_RESOLUTION);
+            this.grpb_PresetROI.Location = new System.Drawing.Point(11, 653);
+            this.grpb_PresetROI.Margin = new System.Windows.Forms.Padding(4);
+            this.grpb_PresetROI.Name = "grpb_PresetROI";
+            this.grpb_PresetROI.Padding = new System.Windows.Forms.Padding(4);
+            this.grpb_PresetROI.Size = new System.Drawing.Size(369, 68);
+            this.grpb_PresetROI.TabIndex = 28;
+            this.grpb_PresetROI.TabStop = false;
+            this.grpb_PresetROI.Text = "Preset Roi";
+            this.grpb_PresetROI.Visible = false;
             // 
             // COMBO_RESOLUTION
             // 
@@ -477,6 +480,7 @@ namespace Envision_CamLib
             this.grpb_ExposureRegion.Controls.Add(this.nud_ExpHeight);
             this.grpb_ExposureRegion.Controls.Add(this.nud_ExpVoff);
             this.grpb_ExposureRegion.Controls.Add(this.nud_ExpHoff);
+            this.grpb_ExposureRegion.Enabled = false;
             this.grpb_ExposureRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpb_ExposureRegion.Location = new System.Drawing.Point(11, 424);
             this.grpb_ExposureRegion.Margin = new System.Windows.Forms.Padding(4);
@@ -585,6 +589,7 @@ namespace Envision_CamLib
             this.grpb_Frequency.Controls.Add(this.rdb_60Hz);
             this.grpb_Frequency.Controls.Add(this.rdb_50Hz);
             this.grpb_Frequency.Controls.Add(this.rdb_DC);
+            this.grpb_Frequency.Enabled = false;
             this.grpb_Frequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpb_Frequency.Location = new System.Drawing.Point(8, 345);
             this.grpb_Frequency.Margin = new System.Windows.Forms.Padding(4);
@@ -661,6 +666,7 @@ namespace Envision_CamLib
             // 
             // GainApply
             // 
+            this.GainApply.Enabled = false;
             this.GainApply.Location = new System.Drawing.Point(249, 121);
             this.GainApply.Margin = new System.Windows.Forms.Padding(4);
             this.GainApply.Name = "GainApply";
@@ -673,14 +679,15 @@ namespace Envision_CamLib
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(18, 229);
+            this.label16.Location = new System.Drawing.Point(9, 225);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 17);
+            this.label16.Size = new System.Drawing.Size(110, 17);
             this.label16.TabIndex = 36;
-            this.label16.Text = "AE Mode";
+            this.label16.Text = "Auto Gain Mode";
             // 
             // ExposureTimeApply
             // 
+            this.ExposureTimeApply.Enabled = false;
             this.ExposureTimeApply.Location = new System.Drawing.Point(249, 167);
             this.ExposureTimeApply.Margin = new System.Windows.Forms.Padding(4);
             this.ExposureTimeApply.Name = "ExposureTimeApply";
@@ -691,6 +698,7 @@ namespace Envision_CamLib
             // 
             // ExposureTimeEdit
             // 
+            this.ExposureTimeEdit.Enabled = false;
             this.ExposureTimeEdit.Increment = new decimal(new int[] {
             100,
             0,
@@ -706,14 +714,22 @@ namespace Envision_CamLib
             // 
             this.COMBO_AE_MODE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.COMBO_AE_MODE.FormattingEnabled = true;
+            this.COMBO_AE_MODE.Items.AddRange(new object[] {
+            "None",
+            "CenterWeighted",
+            "CenterSpot",
+            "Portrait",
+            "Landscape"});
             this.COMBO_AE_MODE.Location = new System.Drawing.Point(126, 222);
             this.COMBO_AE_MODE.Margin = new System.Windows.Forms.Padding(4);
             this.COMBO_AE_MODE.Name = "COMBO_AE_MODE";
             this.COMBO_AE_MODE.Size = new System.Drawing.Size(195, 24);
             this.COMBO_AE_MODE.TabIndex = 33;
+            this.COMBO_AE_MODE.SelectedIndexChanged += new System.EventHandler(this.COMBO_AE_MODE_SelectedIndexChanged);
             // 
             // GainEdit
             // 
+            this.GainEdit.Enabled = false;
             this.GainEdit.Location = new System.Drawing.Point(126, 127);
             this.GainEdit.Margin = new System.Windows.Forms.Padding(4);
             this.GainEdit.Name = "GainEdit";
@@ -732,6 +748,7 @@ namespace Envision_CamLib
             // 
             // tbar_Gain
             // 
+            this.tbar_Gain.Enabled = false;
             this.tbar_Gain.Location = new System.Drawing.Point(18, 72);
             this.tbar_Gain.Name = "tbar_Gain";
             this.tbar_Gain.Size = new System.Drawing.Size(303, 56);
@@ -740,6 +757,7 @@ namespace Envision_CamLib
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(214, 275);
             this.label3.Name = "label3";
@@ -750,6 +768,7 @@ namespace Envision_CamLib
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(138, 276);
             this.label2.Name = "label2";
@@ -760,6 +779,7 @@ namespace Envision_CamLib
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(55, 275);
             this.label1.Name = "label1";
@@ -769,6 +789,7 @@ namespace Envision_CamLib
             // 
             // numericUpDown2
             // 
+            this.numericUpDown2.Enabled = false;
             this.numericUpDown2.Increment = new decimal(new int[] {
             100,
             0,
@@ -782,6 +803,7 @@ namespace Envision_CamLib
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Increment = new decimal(new int[] {
             100,
             0,
@@ -795,6 +817,7 @@ namespace Envision_CamLib
             // 
             // Gain_S
             // 
+            this.Gain_S.Enabled = false;
             this.Gain_S.Increment = new decimal(new int[] {
             100,
             0,
@@ -809,6 +832,7 @@ namespace Envision_CamLib
             // CHECK_AEOPERATION
             // 
             this.CHECK_AEOPERATION.AutoSize = true;
+            this.CHECK_AEOPERATION.Enabled = false;
             this.CHECK_AEOPERATION.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CHECK_AEOPERATION.Location = new System.Drawing.Point(17, 171);
             this.CHECK_AEOPERATION.Margin = new System.Windows.Forms.Padding(4);
@@ -829,6 +853,7 @@ namespace Envision_CamLib
             this.cbhkb_AutoGain.TabIndex = 2;
             this.cbhkb_AutoGain.Text = "Auto Gain";
             this.cbhkb_AutoGain.UseVisualStyleBackColor = true;
+            this.cbhkb_AutoGain.CheckedChanged += new System.EventHandler(this.cbhkb_AutoGain_CheckedChanged);
             // 
             // tbp_Color
             // 
@@ -854,6 +879,7 @@ namespace Envision_CamLib
             this.gtpb_WBRegion.Controls.Add(this.numericUpDown4);
             this.gtpb_WBRegion.Controls.Add(this.numericUpDown7);
             this.gtpb_WBRegion.Controls.Add(this.numericUpDown8);
+            this.gtpb_WBRegion.Enabled = false;
             this.gtpb_WBRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gtpb_WBRegion.Location = new System.Drawing.Point(7, 434);
             this.gtpb_WBRegion.Margin = new System.Windows.Forms.Padding(4);
@@ -963,6 +989,7 @@ namespace Envision_CamLib
             this.gro_ColorEnhance.Controls.Add(this.chkb_Saturation);
             this.gro_ColorEnhance.Controls.Add(this.tbar_ColorTemp);
             this.gro_ColorEnhance.Controls.Add(this.chkb_ColorTemp);
+            this.gro_ColorEnhance.Enabled = false;
             this.gro_ColorEnhance.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gro_ColorEnhance.Location = new System.Drawing.Point(7, 298);
             this.gro_ColorEnhance.Margin = new System.Windows.Forms.Padding(4);
@@ -1023,6 +1050,7 @@ namespace Envision_CamLib
             this.grpb_Gain.Controls.Add(this.label11);
             this.grpb_Gain.Controls.Add(this.label10);
             this.grpb_Gain.Controls.Add(this.label9);
+            this.grpb_Gain.Enabled = false;
             this.grpb_Gain.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpb_Gain.Location = new System.Drawing.Point(7, 85);
             this.grpb_Gain.Name = "grpb_Gain";
@@ -1098,8 +1126,9 @@ namespace Envision_CamLib
             // 
             // grpb_WhiteBalance
             // 
-            this.grpb_WhiteBalance.Controls.Add(this.AWBOnce);
             this.grpb_WhiteBalance.Controls.Add(this.AWBEnable);
+            this.grpb_WhiteBalance.Controls.Add(this.cmb_AWMode);
+            this.grpb_WhiteBalance.Controls.Add(this.AWBOnce);
             this.grpb_WhiteBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpb_WhiteBalance.Location = new System.Drawing.Point(7, 12);
             this.grpb_WhiteBalance.Margin = new System.Windows.Forms.Padding(4);
@@ -1109,17 +1138,6 @@ namespace Envision_CamLib
             this.grpb_WhiteBalance.TabIndex = 24;
             this.grpb_WhiteBalance.TabStop = false;
             this.grpb_WhiteBalance.Text = "White Balance";
-            // 
-            // AWBOnce
-            // 
-            this.AWBOnce.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AWBOnce.Location = new System.Drawing.Point(137, 21);
-            this.AWBOnce.Margin = new System.Windows.Forms.Padding(4);
-            this.AWBOnce.Name = "AWBOnce";
-            this.AWBOnce.Size = new System.Drawing.Size(149, 31);
-            this.AWBOnce.TabIndex = 1;
-            this.AWBOnce.Text = "White Balance";
-            this.AWBOnce.UseVisualStyleBackColor = true;
             // 
             // AWBEnable
             // 
@@ -1132,6 +1150,36 @@ namespace Envision_CamLib
             this.AWBEnable.TabIndex = 0;
             this.AWBEnable.Text = "Automatic";
             this.AWBEnable.UseVisualStyleBackColor = true;
+            this.AWBEnable.CheckedChanged += new System.EventHandler(this.AWBEnable_CheckedChanged);
+            // 
+            // cmb_AWMode
+            // 
+            this.cmb_AWMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_AWMode.FormattingEnabled = true;
+            this.cmb_AWMode.Items.AddRange(new object[] {
+            "ADOBE_RGB_D65",
+            "CIE_RGB_E",
+            "ECI_RGB_D50",
+            "SRGB_D50",
+            "SRGB_D65"});
+            this.cmb_AWMode.Location = new System.Drawing.Point(137, 24);
+            this.cmb_AWMode.Margin = new System.Windows.Forms.Padding(4);
+            this.cmb_AWMode.Name = "cmb_AWMode";
+            this.cmb_AWMode.Size = new System.Drawing.Size(195, 24);
+            this.cmb_AWMode.TabIndex = 34;
+            this.cmb_AWMode.SelectedIndexChanged += new System.EventHandler(this.cmb_AWMode_SelectedIndexChanged);
+            // 
+            // AWBOnce
+            // 
+            this.AWBOnce.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AWBOnce.Location = new System.Drawing.Point(137, 21);
+            this.AWBOnce.Margin = new System.Windows.Forms.Padding(4);
+            this.AWBOnce.Name = "AWBOnce";
+            this.AWBOnce.Size = new System.Drawing.Size(149, 31);
+            this.AWBOnce.TabIndex = 1;
+            this.AWBOnce.Text = "White Balance";
+            this.AWBOnce.UseVisualStyleBackColor = true;
+            this.AWBOnce.Visible = false;
             // 
             // tbp_Enhance
             // 
@@ -1153,7 +1201,7 @@ namespace Envision_CamLib
             this.grpb_Others.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.grpb_Others.Controls.Add(this.cB_Semi_transparent);
             this.grpb_Others.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpb_Others.Location = new System.Drawing.Point(11, 598);
+            this.grpb_Others.Location = new System.Drawing.Point(13, 581);
             this.grpb_Others.Margin = new System.Windows.Forms.Padding(4);
             this.grpb_Others.Name = "grpb_Others";
             this.grpb_Others.Padding = new System.Windows.Forms.Padding(4);
@@ -1182,7 +1230,7 @@ namespace Envision_CamLib
             this.gBVsync.Controls.Add(this.rB_Vsync_auto);
             this.gBVsync.Controls.Add(this.rB_Vsync_off);
             this.gBVsync.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBVsync.Location = new System.Drawing.Point(11, 542);
+            this.gBVsync.Location = new System.Drawing.Point(11, 524);
             this.gBVsync.Margin = new System.Windows.Forms.Padding(4);
             this.gBVsync.Name = "gBVsync";
             this.gBVsync.Padding = new System.Windows.Forms.Padding(4);
@@ -1270,6 +1318,7 @@ namespace Envision_CamLib
             this.chkb_Mono.TabIndex = 0;
             this.chkb_Mono.Text = "Mono ";
             this.chkb_Mono.UseVisualStyleBackColor = true;
+            this.chkb_Mono.CheckedChanged += new System.EventHandler(this.chkb_Mono_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -1296,6 +1345,7 @@ namespace Envision_CamLib
             this.chkb_HFlip.TabIndex = 38;
             this.chkb_HFlip.Text = "HFlip";
             this.chkb_HFlip.UseVisualStyleBackColor = true;
+            this.chkb_HFlip.CheckedChanged += new System.EventHandler(this.chkb_HFlip_CheckedChanged);
             // 
             // chkb_VFlip
             // 
@@ -1308,6 +1358,7 @@ namespace Envision_CamLib
             this.chkb_VFlip.TabIndex = 0;
             this.chkb_VFlip.Text = "VFlip";
             this.chkb_VFlip.UseVisualStyleBackColor = true;
+            this.chkb_VFlip.CheckedChanged += new System.EventHandler(this.chkb_VFlip_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -1339,6 +1390,7 @@ namespace Envision_CamLib
             // chkb_3DNoise
             // 
             this.chkb_3DNoise.AutoSize = true;
+            this.chkb_3DNoise.Enabled = false;
             this.chkb_3DNoise.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkb_3DNoise.Location = new System.Drawing.Point(17, 127);
             this.chkb_3DNoise.Margin = new System.Windows.Forms.Padding(4);
@@ -1347,6 +1399,7 @@ namespace Envision_CamLib
             this.chkb_3DNoise.TabIndex = 40;
             this.chkb_3DNoise.Text = "3D Noise";
             this.chkb_3DNoise.UseVisualStyleBackColor = true;
+            this.chkb_3DNoise.CheckedChanged += new System.EventHandler(this.chkb_3DNoise_CheckedChanged);
             // 
             // tbar_2DNoise
             // 
@@ -1360,6 +1413,7 @@ namespace Envision_CamLib
             // chkb_2DNoise
             // 
             this.chkb_2DNoise.AutoSize = true;
+            this.chkb_2DNoise.Enabled = false;
             this.chkb_2DNoise.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkb_2DNoise.Location = new System.Drawing.Point(17, 77);
             this.chkb_2DNoise.Margin = new System.Windows.Forms.Padding(4);
@@ -1368,6 +1422,7 @@ namespace Envision_CamLib
             this.chkb_2DNoise.TabIndex = 38;
             this.chkb_2DNoise.Text = "2D Noise";
             this.chkb_2DNoise.UseVisualStyleBackColor = true;
+            this.chkb_2DNoise.CheckedChanged += new System.EventHandler(this.chkb_2DNoise_CheckedChanged);
             // 
             // tbar_Sharpness
             // 
@@ -1377,6 +1432,7 @@ namespace Envision_CamLib
             this.tbar_Sharpness.Name = "tbar_Sharpness";
             this.tbar_Sharpness.Size = new System.Drawing.Size(207, 56);
             this.tbar_Sharpness.TabIndex = 37;
+            this.tbar_Sharpness.Scroll += new System.EventHandler(this.tbar_Sharpness_Scroll);
             // 
             // chkb_Sharpness
             // 
@@ -1389,6 +1445,7 @@ namespace Envision_CamLib
             this.chkb_Sharpness.TabIndex = 0;
             this.chkb_Sharpness.Text = "Sharpness";
             this.chkb_Sharpness.UseVisualStyleBackColor = true;
+            this.chkb_Sharpness.CheckedChanged += new System.EventHandler(this.chkb_Sharpness_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -1417,6 +1474,7 @@ namespace Envision_CamLib
             this.tbar_BlackLevel.Name = "tbar_BlackLevel";
             this.tbar_BlackLevel.Size = new System.Drawing.Size(207, 56);
             this.tbar_BlackLevel.TabIndex = 41;
+            this.tbar_BlackLevel.Scroll += new System.EventHandler(this.tbar_BlackLevel_Scroll);
             // 
             // chkb_BlackLevel
             // 
@@ -1429,6 +1487,7 @@ namespace Envision_CamLib
             this.chkb_BlackLevel.TabIndex = 40;
             this.chkb_BlackLevel.Text = "Black Level";
             this.chkb_BlackLevel.UseVisualStyleBackColor = true;
+            this.chkb_BlackLevel.CheckedChanged += new System.EventHandler(this.chkb_BlackLevel_CheckedChanged);
             // 
             // tbar_Gamma
             // 
@@ -1439,6 +1498,7 @@ namespace Envision_CamLib
             this.tbar_Gamma.Name = "tbar_Gamma";
             this.tbar_Gamma.Size = new System.Drawing.Size(207, 56);
             this.tbar_Gamma.TabIndex = 39;
+            this.tbar_Gamma.Scroll += new System.EventHandler(this.tbar_Gamma_Scroll);
             // 
             // chkb_Gamma
             // 
@@ -1451,6 +1511,7 @@ namespace Envision_CamLib
             this.chkb_Gamma.TabIndex = 38;
             this.chkb_Gamma.Text = "Gamma";
             this.chkb_Gamma.UseVisualStyleBackColor = true;
+            this.chkb_Gamma.CheckedChanged += new System.EventHandler(this.chkb_Gamma_CheckedChanged);
             // 
             // tbar_Contrast
             // 
@@ -1461,6 +1522,7 @@ namespace Envision_CamLib
             this.tbar_Contrast.Name = "tbar_Contrast";
             this.tbar_Contrast.Size = new System.Drawing.Size(207, 56);
             this.tbar_Contrast.TabIndex = 37;
+            this.tbar_Contrast.Scroll += new System.EventHandler(this.tbar_Contrast_Scroll);
             // 
             // chkb_Contrast
             // 
@@ -1473,6 +1535,7 @@ namespace Envision_CamLib
             this.chkb_Contrast.TabIndex = 0;
             this.chkb_Contrast.Text = "Contrast";
             this.chkb_Contrast.UseVisualStyleBackColor = true;
+            this.chkb_Contrast.CheckedChanged += new System.EventHandler(this.chkb_Contrast_CheckedChanged);
             // 
             // frm_uEyeInit
             // 
@@ -1485,6 +1548,7 @@ namespace Envision_CamLib
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Camera Integration";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm_uEyeInit_FormClosed);
             this.Load += new System.EventHandler(this.frm_uEyeInit_Load);
             this.Shown += new System.EventHandler(this.frm_uEyeInit_Shown);
             this.splt_Container.Panel1.ResumeLayout(false);
@@ -1495,7 +1559,7 @@ namespace Envision_CamLib
             ((System.ComponentModel.ISupportInitialize)(this.DisplayWindow)).EndInit();
             this.tbc_CameraSettings.ResumeLayout(false);
             this.tbp_ExpGain.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
+            this.grpb_PresetROI.ResumeLayout(false);
             this.grpb_ExposureRegion.ResumeLayout(false);
             this.grpb_ExposureRegion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ExpWidth)).EndInit();
@@ -1564,7 +1628,7 @@ namespace Envision_CamLib
         private System.Windows.Forms.ComboBox COMBO_DEVICES;
         private System.Windows.Forms.TabControl tbc_CameraSettings;
         private System.Windows.Forms.TabPage tbp_ExpGain;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox grpb_PresetROI;
         private System.Windows.Forms.ComboBox COMBO_RESOLUTION;
         private System.Windows.Forms.GroupBox grpb_ExposureRegion;
         private System.Windows.Forms.Label label8;
@@ -1660,5 +1724,6 @@ namespace Envision_CamLib
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.PictureBox DisplayWindow;
         private System.Windows.Forms.CheckBox cB_Semi_transparent;
+        private System.Windows.Forms.ComboBox cmb_AWMode;
     }
 }

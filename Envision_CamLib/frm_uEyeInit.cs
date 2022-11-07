@@ -234,6 +234,7 @@ namespace Envision_CamLib
             /* active keys Strart Live and Stop Live */
             BUTTON_START.Enabled = false;
             BUTTON_STOP.Enabled = true;
+            chkb_CameraSettings.Enabled = true;
         }
 
         private void BUTTON_STOP_Click(object sender, EventArgs e)
@@ -245,11 +246,12 @@ namespace Envision_CamLib
             /* active keys Strart Live and Stop Live */
             BUTTON_START.Enabled = true;
             BUTTON_STOP.Enabled = false;
+            chkb_CameraSettings.Enabled = false;
         }
 
         private void BUTTON_SAVE_Click(object sender, EventArgs e)
         {
-            if (!BUTTON_START.Enabled)
+            if (BUTTON_START.Enabled)
                 return;
 
             string file_path = string.Empty;
@@ -265,11 +267,12 @@ namespace Envision_CamLib
                 file_path = _imageLocation + "\\" + "IM_IMG_X" + "_" + rnd + ".bmp";
             }
 
-            if (!b_isIDSPeak)
+            m_Camera.Image.Save(file_path, uEye.Defines.ImageFormat.Bmp);
+            if (_loadRefreshimages != null)
             {
-               
+                _loadRefreshimages();
             }
-
+            
             if (_loadRefreshimages != null)
             {
                 _loadRefreshimages();
@@ -279,6 +282,219 @@ namespace Envision_CamLib
         private void frm_uEyeInit_Load(object sender, EventArgs e)
         {
             splt_Container.Panel2Collapsed = !chkb_CameraSettings.Checked;
+        }
+
+        private void frm_uEyeInit_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            m_Camera.Exit();
+        }
+
+        private void cbhkb_AutoGain_CheckedChanged(object sender, EventArgs e)
+        {
+            m_Camera.AutoFeatures.Sensor.GainShutter.SetEnable(cbhkb_AutoGain.Checked);
+            EnDisGainControls(cbhkb_AutoGain.Checked);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="checked"></param>
+        private void EnDisGainControls(bool @checked)
+        {
+            //GainEdit.Enabled = @checked;
+            //GainApply.Enabled = @checked;
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AWBEnable_CheckedChanged(object sender, EventArgs e)
+        {
+            m_Camera.AutoFeatures.Software.WhiteBalance.SetEnable(AWBEnable.Checked);
+            cbhkb_AutoGain.Enabled = AWBEnable.Checked;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmb_AWMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+                ADOBE_RGB_D65
+                CIE_RGB_E
+                ECI_RGB_D50
+                SRGB_D50
+                SRGB_D65
+             */
+
+            switch(cmb_AWMode.SelectedItem.ToString())
+            {
+                case "ADOBE_RGB_D65":
+                    m_Camera.AutoFeatures.Software.WhiteBalance.SetColorModel(uEye.Defines.ColorTemperatureRgbMode.ADOBE_RGB_D65);
+                    break;
+                case "CIE_RGB_E":
+                    m_Camera.AutoFeatures.Software.WhiteBalance.SetColorModel(uEye.Defines.ColorTemperatureRgbMode.CIE_RGB_E);
+                    break;
+                case "ECI_RGB_D50":
+                    m_Camera.AutoFeatures.Software.WhiteBalance.SetColorModel(uEye.Defines.ColorTemperatureRgbMode.ECI_RGB_D50);
+                    break;
+                case "SRGB_D50":
+                    m_Camera.AutoFeatures.Software.WhiteBalance.SetColorModel(uEye.Defines.ColorTemperatureRgbMode.SRGB_D50);
+                    break;
+                case "SRGB_D65":
+                    m_Camera.AutoFeatures.Software.WhiteBalance.SetColorModel(uEye.Defines.ColorTemperatureRgbMode.SRGB_D65);
+                    break;
+            }
+        }
+
+        private void COMBO_AE_MODE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+                None
+                CenterWeighted
+                CenterSpot
+                Portrait
+                Landscape
+            */
+            switch (COMBO_AE_MODE.SelectedItem.ToString())
+            {
+                case "None":
+                    m_Camera.AutoFeatures.Sensor.Gain.SetPhotom(uEye.Defines.Whitebalance.GainPhotomMode.None);
+                    break;
+                case "CenterWeighted":
+                    m_Camera.AutoFeatures.Sensor.Gain.SetPhotom(uEye.Defines.Whitebalance.GainPhotomMode.None);
+                    break;
+                case "CenterSpot":
+                    m_Camera.AutoFeatures.Sensor.Gain.SetPhotom(uEye.Defines.Whitebalance.GainPhotomMode.CenterSpot);
+                    break;
+                case "Portrait":
+                    m_Camera.AutoFeatures.Sensor.Gain.SetPhotom(uEye.Defines.Whitebalance.GainPhotomMode.Portrait);
+                    break;
+                case "Landscape":
+                    m_Camera.AutoFeatures.Sensor.Gain.SetPhotom(uEye.Defines.Whitebalance.GainPhotomMode.Landscape);
+                    break;
+            }
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkb_Contrast_CheckedChanged(object sender, EventArgs e)
+        {
+            tbar_Contrast.Enabled = chkb_Contrast.Checked;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkb_Gamma_CheckedChanged(object sender, EventArgs e)
+        {
+            int GamValue = 0;
+            tbar_Gamma.Enabled = chkb_Gamma.Checked;
+            m_Camera.Gamma.Software.Get(out GamValue);
+            tbar_Gamma.Value = GamValue;
+        }
+
+        private void chkb_BlackLevel_CheckedChanged(object sender, EventArgs e)
+        {
+            tbar_BlackLevel.Enabled = chkb_BlackLevel.Checked;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkb_Sharpness_CheckedChanged(object sender, EventArgs e)
+        {
+            tbar_Sharpness.Enabled = chkb_Sharpness.Checked;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkb_2DNoise_CheckedChanged(object sender, EventArgs e)
+        {
+            tbar_2DNoise.Enabled = chkb_2DNoise.Checked;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkb_3DNoise_CheckedChanged(object sender, EventArgs e)
+        {
+            tbar_3DNoise.Enabled = chkb_3DNoise.Checked;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkb_VFlip_CheckedChanged(object sender, EventArgs e)
+        {
+            m_Camera.RopEffect.Set(uEye.Defines.RopEffectMode.UpDown, chkb_VFlip.Checked);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkb_HFlip_CheckedChanged(object sender, EventArgs e)
+        {
+            m_Camera.RopEffect.Set(uEye.Defines.RopEffectMode.LeftRight, chkb_HFlip.Checked);
+        }
+
+        private void chkb_Mono_CheckedChanged(object sender, EventArgs e)
+        {
+            uEye.Defines.DisplayMode displayMode;
+            m_Camera.Display.Mode.Get(out displayMode);
+
+            if (chkb_Mono.Checked == true)
+            {
+                displayMode |= uEye.Defines.DisplayMode.Mono;
+            }
+            else
+            {
+                displayMode &= ~uEye.Defines.DisplayMode.Mono;
+            }
+
+            m_Camera.Display.Mode.Set(displayMode);
+        }
+
+        private void tbar_Gamma_Scroll(object sender, EventArgs e)
+        {
+            m_Camera.Gamma.Software.Set(tbar_Gamma.Value);
+        }
+
+        private void tbar_BlackLevel_Scroll(object sender, EventArgs e)
+        {
+            m_Camera.BlackLevel.Offset.Set(tbar_BlackLevel.Value);
+        }
+
+        private void tbar_Sharpness_Scroll(object sender, EventArgs e)
+        {
+            m_Camera.Saturation.Set(tbar_Sharpness.Value);
+        }
+
+        private void tbar_Contrast_Scroll(object sender, EventArgs e)
+        {
+
         }
     }
 }
