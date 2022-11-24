@@ -1,7 +1,7 @@
 ﻿
 namespace Envision_CamLib
 {
-    partial class frm_uEyeInit
+    partial class frm_uEyeInitNew
     {
         /// <summary>
         /// Required designer variable.
@@ -189,7 +189,7 @@ namespace Envision_CamLib
             // 
             // splt_Container
             // 
-            this.splt_Container.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.splt_Container.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splt_Container.Location = new System.Drawing.Point(-4, 3);
             this.splt_Container.Name = "splt_Container";
@@ -315,7 +315,7 @@ namespace Envision_CamLib
             // 
             // DisplayWindow
             // 
-            this.DisplayWindow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.DisplayWindow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DisplayWindow.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.DisplayWindow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -638,7 +638,7 @@ namespace Envision_CamLib
             // 
             // grp_Brilliance
             // 
-            this.grp_Brilliance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grp_Brilliance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grp_Brilliance.Controls.Add(this.GainApply);
             this.grp_Brilliance.Controls.Add(this.label16);

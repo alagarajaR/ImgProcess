@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Envision.Common;
-using AxuEyeCamLib;
 
 namespace Envision_CamLib
 {
-    public partial class frm_uEyeInit : KryptonForm
+    public partial class frm_uEyeInitNew : KryptonForm
     {
         public bool m_bAeOp = false;
         public int m_n_dev_count = 0;
@@ -52,7 +51,7 @@ namespace Envision_CamLib
 
         // DirectRendererOverlay
         uEye.DirectRendererOverlay m_Overlay = null;
-        public frm_uEyeInit()
+        public frm_uEyeInitNew()
         {
             InitializeComponent();
         }
@@ -269,7 +268,6 @@ namespace Envision_CamLib
                 file_path = _imageLocation + "\\" + "IM_IMG_X" + "_" + rnd + ".bmp";
             }
 
-            m_Camera.Acquisition.Freeze();
             m_Camera.Image.Save(file_path, uEye.Defines.ImageFormat.Bmp);
 
             MessageBox.Show(file_path + " Image Saved Successfully !!");

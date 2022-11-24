@@ -331,7 +331,8 @@
             "M50",
             "M60",
             "MDX10",
-            "IDS Peak"});
+            "IDSPeak uEye- Old Version",
+            "IDSPeak uEye- New Version"});
             this.cmbModel.Location = new System.Drawing.Point(140, 195);
             this.cmbModel.Margin = new System.Windows.Forms.Padding(4);
             this.cmbModel.Name = "cmbModel";

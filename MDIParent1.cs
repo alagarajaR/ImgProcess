@@ -4159,9 +4159,45 @@ namespace ImgProcess
 
                 
 
-                if (modelName == "IDS Peak uEye") {
+                if (modelName == "IDSPeak uEye- Old Version") {
 
                     frm_uEyeInit frmCamera = new frm_uEyeInit();
+                    frmCamera._isWeldMet = com.WMLic;
+                    frmCamera._loadRefreshimages += LoadRefreshImages;
+
+                    if (com.IMLic)
+                    {
+                        if (txtIMLocation.Text == string.Empty)
+                        {
+                            MessageBox.Show("Image Location is not configured. Initiating Image Location !!!");
+                            FolderBrowserDialog fd = new FolderBrowserDialog();
+
+                            if (fd.ShowDialog() == DialogResult.OK)
+                            {
+                                txtIMLocation.Text = fd.SelectedPath;
+                                Properties.Settings.Default.IMLocation = txtIMLocation.Text;
+                                Properties.Settings.Default.Save();
+                            }
+                        }
+                        frmCamera._imageLocation = txtIMLocation.Text;
+                    }
+                    else
+                    {
+                        if (cmbComponents.Text == string.Empty || cmbJobs.Text == string.Empty)
+                        {
+                            MessageBox.Show("Please select component/Job to proceed capturing images");
+                            return;
+                        }
+                        frmCamera._jobID = txtJobId.Text;
+                        frmCamera._imageLocation = txtLoc.Text;
+                    }
+                    frmCamera.ShowDialog();
+
+                }
+                else if (modelName == "IDSPeak uEye- New Version")
+                {
+
+                    frm_uEyeInitNew frmCamera = new frm_uEyeInitNew();
                     frmCamera._isWeldMet = com.WMLic;
                     frmCamera._loadRefreshimages += LoadRefreshImages;
 

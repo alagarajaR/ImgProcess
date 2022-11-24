@@ -85,8 +85,8 @@ namespace ImgProcess
             "M50",
             "M60",
             "MDX10",
-            "IDS Peak",
-            "IDS Peak uEye"});
+            "IDSPeak uEye- Old Version",
+            "IDSPeak uEye- New Version"});
             this.cmbModel.Location = new System.Drawing.Point(205, 268);
             this.cmbModel.Margin = new System.Windows.Forms.Padding(4);
             this.cmbModel.Name = "cmbModel";

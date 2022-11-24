@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.uEyeCamLib, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Depends\AxInterop.uEyeCamLib.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Design, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <HintPath>..\ImgProcess_20220915\packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Design.dll</HintPath>
     </Reference>
@@ -80,6 +84,12 @@
     <Compile Include="frm_CameraInt.Designer.cs">
       <DependentUpon>frm_CameraInt.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_uEyeInitNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_uEyeInitNew.Designer.cs">
+      <DependentUpon>frm_uEyeInitNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_uEyeInit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +101,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frm_CameraInt.resx">
       <DependentUpon>frm_CameraInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_uEyeInitNew.resx">
+      <DependentUpon>frm_uEyeInitNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_uEyeInit.resx">
       <DependentUpon>frm_uEyeInit.cs</DependentUpon>
@@ -106,6 +119,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Depends\AxInterop.uEyeCamLib.dll" />
     <Content Include="Depends\ErrLbl.dll" />
     <Content Include="Depends\MySql.Data.dll" />
     <Content Include="Depends\RulerControl.dll" />
